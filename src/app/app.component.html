@@ -1,3 +1,20 @@
+<mat-toolbar class="navbar" color="primary">
+  <div>Example</div>
+  <div>
+  <span>Home</span>
+  <span>About</span>
+  <span>Contact</span>
+  </div>
+</mat-toolbar>
+<mat-sidenav-container >
+  <mat-sidenav [(opened)] = "opened"> Home </mat-sidenav>
+    <mat-sidenav-content>
+      main
+      <button mat-raised-button (click)="opened = !opened">click</button>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
 <div class="mat-display-1">Buttons</div>
 <button mat-button>Default</button>
 <button mat-raised-button>Raised</button>
@@ -26,3 +43,36 @@
   <mat-button-toggle value="USA">USA</mat-button-toggle>
   <mat-button-toggle value="UK" disabled>Uk</mat-button-toggle>
 </mat-button-toggle-group>
+<div class= mat-display-1>Badge</div>
+<div>
+  <span [matBadge]="notifications" [matBadgeHidden]="notifications === 0" matBadgePosition="above after" matBadgeOverlap="false">Notifications</span>
+</div>
+<div>
+  <span matBadge="5" matBadgePosition="below after" matBadgeOverlap="false" matBadgeColor="accent" matBadgeSize="small">Notifications</span>
+</div>
+
+<div class="mat-display-1">Progress Spinner</div>
+<div>
+  <mat-spinner *ngIf ="progSpinner"></mat-spinner>
+  <button mat-raised-button (click) = "loadSpinner()">click</button>
+</div>
+
+<div class="mat-display-1">Progress Bar</div>
+<div>
+  <mat-progress-bar color="accent" ></mat-progress-bar>
+  
+</div>
+
+<div class="mat-display-1"> Menu</div>
+<button mat-flat-button class="center" [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu" xPosition="before" yPosition="below">
+  <button mat-menu-item [matMenuTriggerFor]="subMenu">Angular</button>
+  <button mat-menu-item>React</button>
+  <button mat-menu-item>Vue</button>
+</mat-menu>
+<mat-menu #subMenu="matMenu">
+    <button mat-menu-item>Angular</button>
+    <button mat-menu-item>Angular</button>
+    <button mat-menu-item>Angular</button>
+</mat-menu>
+

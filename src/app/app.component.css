@@ -1,3 +1,23 @@
 button{
     margin-right: 3rem;
 }
+.navbar{
+    justify-content: space-between;
+}
+span{
+    padding-right: 1rem;
+}
+mat-sidenav-container{
+    height: 50%;
+}
+
+mat-sidenav-content , mat-sidenav{
+    padding : 16px;
+}
+mat-sidenav{
+    background-color: sandybrown;
+    width : 200px;
+}
+.center{
+    margin: 10rem;
+}

@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularMatEx';
+  notifications = 3;
+  progSpinner =false;
+  opened=false;
+
+  loadSpinner(){
+    this.progSpinner =true;
+    setTimeout(() =>{
+      this.progSpinner = false
+    },5000)
+  }
 }
