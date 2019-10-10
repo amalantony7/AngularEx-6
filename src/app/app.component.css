@@ -21,3 +21,6 @@ mat-sidenav{
 .center{
     margin: 10rem;
 }
+mat-toolbar{
+    position: relative;
+}

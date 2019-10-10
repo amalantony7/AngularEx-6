@@ -7,7 +7,19 @@ import { MatButtonModule,
          MatProgressBarModule,
          MatToolbarModule,
          MatSidenavModule,
-         MatMenuModule
+         MatMenuModule,
+         MatDividerModule,
+         MatExpansionModule,
+         MatCardModule,
+         MatTabsModule,
+         MatStepperModule,
+         MatFormFieldModule,
+         MatInputModule,
+         MatSelectModule,
+         MatDatepickerModule,
+         MatNativeDateModule,
+         MatTooltipModule,
+         MatSnackBarModule
 } from '@angular/material';
 
 
@@ -20,7 +32,19 @@ const MaterialComponents = [
   MatProgressBarModule,
   MatToolbarModule,
   MatSidenavModule,
-  MatMenuModule
+  MatMenuModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatCardModule,
+  MatTabsModule,
+  MatStepperModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatTooltipModule,
+  MatSnackBarModule
 ]
 
 @NgModule({

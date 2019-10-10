@@ -1,13 +1,22 @@
 <mat-toolbar class="navbar" color="primary">
   <div>Example</div>
   <div>
-  <span>Home</span>
-  <span>About</span>
-  <span>Contact</span>
+  <button mat-button [matMenuTriggerFor]="menu">Frontend</button>
+  <button mat-button >Backend</button>
   </div>
 </mat-toolbar>
+<mat-menu #menu="matMenu" xPosition="before" yPosition="below">
+  <button mat-menu-item [matMenuTriggerFor]="subMenu">Angular</button>
+  <button mat-menu-item>React</button>
+  <button mat-menu-item>Vue</button>
+</mat-menu>
+<mat-menu #subMenu="matMenu" xPosition="after" yPosition="below">
+    <button mat-menu-item>Angular</button>
+    <button mat-menu-item>Angular</button>
+    <button mat-menu-item>Angular</button>
+</mat-menu>
 <mat-sidenav-container >
-  <mat-sidenav [(opened)] = "opened"> Home </mat-sidenav>
+  <mat-sidenav mode="side" [(opened)] = "opened"> Home </mat-sidenav>
     <mat-sidenav-content>
       main
       <button mat-raised-button (click)="opened = !opened">click</button>
@@ -43,6 +52,7 @@
   <mat-button-toggle value="USA">USA</mat-button-toggle>
   <mat-button-toggle value="UK" disabled>Uk</mat-button-toggle>
 </mat-button-toggle-group>
+<mat-divider></mat-divider>
 <div class= mat-display-1>Badge</div>
 <div>
   <span [matBadge]="notifications" [matBadgeHidden]="notifications === 0" matBadgePosition="above after" matBadgeOverlap="false">Notifications</span>
@@ -63,16 +73,126 @@
   
 </div>
 
-<div class="mat-display-1"> Menu</div>
-<button mat-flat-button class="center" [matMenuTriggerFor]="menu">Menu</button>
-<mat-menu #menu="matMenu" xPosition="before" yPosition="below">
-  <button mat-menu-item [matMenuTriggerFor]="subMenu">Angular</button>
-  <button mat-menu-item>React</button>
-  <button mat-menu-item>Vue</button>
-</mat-menu>
-<mat-menu #subMenu="matMenu">
-    <button mat-menu-item>Angular</button>
-    <button mat-menu-item>Angular</button>
-    <button mat-menu-item>Angular</button>
-</mat-menu>
+<mat-divider></mat-divider>
 
+<mat-accordion>
+<mat-expansion-panel>
+<mat-expansion-panel-header>
+  <mat-panel-title>
+    Angular Fundamentals
+  </mat-panel-title>
+  <mat-panel-description>
+    Total Duration: 3 hours.
+  </mat-panel-description>
+</mat-expansion-panel-header>
+<p>This is just a description.</p>
+<mat-action-row>
+  <button mat-button>enroll</button>
+</mat-action-row>
+</mat-expansion-panel>
+
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Angular Tutorial
+      </mat-panel-title>
+      <mat-panel-description>
+        Total Duration:5 hours.
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is just a description.</p>
+    <mat-action-row>
+      <button mat-button>enroll</button>
+    </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-divider></mat-divider>
+<div class="mat-display-1">Cards</div>
+  <mat-card>
+    <mat-card-title>Basic Card</mat-card-title>
+    <mat-card-subtitle>This is a card</mat-card-subtitle>
+    <mat-card-content>Description for a card</mat-card-content>
+    <mat-card-actions align = "center">
+      <button mat-flat-button>Login</button>
+    </mat-card-actions>
+  </mat-card>
+
+
+  <mat-divider></mat-divider>
+
+  <div class="mat-display-1">Tab</div>
+  <mat-tab-group #tabRef>
+    <mat-tab label="item 1">Item 1</mat-tab>
+    <mat-tab label="item 2">Item 2</mat-tab>
+    <mat-tab label="item 3">Item 3</mat-tab>
+  </mat-tab-group>
+
+  {{tabRef.selectedIndex}}
+
+<mat-divider></mat-divider>
+
+<div class="mat-display-1">Stepper</div>
+<mat-vertical-stepper linear>
+  <mat-step label="Name" completed = true>
+    <div>
+    <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput type="text" matTooltip = "Name" matTooltipShowDelay="2000">
+    <mat-hint>Min 6 characters</mat-hint>
+    </mat-form-field>
+    </div>
+    <div align="end">
+    <button mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Addrees" completed = true optional>
+      <div>
+      <mat-form-field appearance="outline">
+      <mat-label>Addrees</mat-label>
+      <textarea matInput matTooltip = "Address"></textarea>
+    </mat-form-field>
+      </div>
+      <div align="end">
+      <button mat-button matStepperPrevious color="warn">Back</button>
+      <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step label="Gender" completed = true>
+        <div>
+        <mat-form-field
+        >
+        <mat-label>Gender</mat-label>
+        <mat-select matTooltip = "Gender">
+          <mat-option>None</mat-option>
+          <mat-option value="male">Male</mat-option>
+          <mat-option value="female">Female</mat-option>
+          <mat-option value="others">Others</mat-option>
+        </mat-select>
+      </mat-form-field>
+        </div>
+        <div align="end">
+        <button mat-button matStepperPrevious color="warn">Back</button>
+        <button mat-button matStepperNext>Next</button>
+        </div>
+      </mat-step>
+    <mat-step label="Phone" completed = true>
+        <div>
+          <mat-form-field appearance="standard">
+        <mat-label>Phone</mat-label>
+        <input matInput type="text" matTooltip = "Contact Number">
+      </mat-form-field>
+        </div>
+        <div align="end">
+        <button mat-button matStepperPrevious color="warn">Back</button>
+        <button mat-button (click)="openSnackBar('Submitted', 'Dismiss')" >Submit</button>
+        </div>
+      </mat-step>
+</mat-vertical-stepper>
+
+<div class="mat-display-1">Date</div>
+<mat-form-field>
+  <input matInput [matDatepicker]="myDate" [min]="minDate" [max]="maxDate" [matDatepickerFilter]="dateFilter">
+  <mat-datepicker-toggle [for]="myDate" matSuffix></mat-datepicker-toggle>
+  <mat-datepicker #myDate></mat-datepicker>
+</mat-form-field>
