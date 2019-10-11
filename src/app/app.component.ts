@@ -1,10 +1,19 @@
 import { Component } from '@angular/core';
 import { MatSnackBar} from '@angular/material';
+import { trigger, transition, style, animate, state } from '@angular/animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  animations : [ 
+    trigger('fade' , [
+      state('void' , style({ opacity : 0})),
+      transition(':enter , :leave', [
+        animate(2000)
+      ])
+    ])
+  ]
 })
 export class AppComponent {
   title = 'AngularMatEx';
@@ -13,6 +22,7 @@ export class AppComponent {
   opened=false;
   minDate= new Date(1990, 1, 1);
   maxDate = new Date;
+  
 
   loadSpinner(){
     this.progSpinner =true;
@@ -31,5 +41,6 @@ export class AppComponent {
   openSnackBar(message, action){
     this._snackBar.open(message , action , {"duration" : 2000});
   }
+
 
 }
